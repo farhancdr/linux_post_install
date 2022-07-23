@@ -46,6 +46,10 @@ echo "Downloading and installing chrome"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 
+#Enabling noise cancelation
+echo "Enabling noise cancelation"
+sudo cp -i ./default.pa /etc/pulse/
+
 #install zsh and change default shell to zsh
 echo "Installing zsh... "
 echo "Changing default shell to zsh..."
@@ -57,5 +61,6 @@ sudo chsh -s /usr/bin/zsh
 echo "Your apps and graphics are now installed."
 echo "You can now change theme and appearance from Tweaks app"
 echo "Extract the fonts_themes.zip file and copy it folders to home directory."
+echo "Before opening chrome, please update all softwares from ubuntu software"
 echo "Please, restart the computer, and then run 3nd script to configure zsh and final setup"
 

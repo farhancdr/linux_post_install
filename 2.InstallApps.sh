@@ -21,6 +21,9 @@ sudo apt install -y gnome-tweaks
 sudo apt install -y wget
 sudo apt install -y curl
 sudo apt install -y terminator
+sudo apt install -y telegram-desktop
+sudo snap install --classic code
+
 
 
 #install nvm and node

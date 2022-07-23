@@ -15,7 +15,6 @@ sudo apt install -y ffmpeg
 sudo apt install -y flameshot
 sudo apt install -y vlc
 sudo apt install -y git
-sudo apt install -y brave-browser
 sudo apt install -y zsh
 sudo apt install -y gnome-tweaks
 sudo apt install -y wget

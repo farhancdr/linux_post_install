@@ -6,6 +6,7 @@
 sudo apt update
 
 #install important apps
+echo "Installing important apps..."
 sudo apt install ibus-avro
 sudo apt install -y htop
 sudo apt install -y neofetch
@@ -23,16 +24,38 @@ sudo apt install -y terminator
 
 
 #install nvm and node
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash #install nvm
+echo "Installing nvm and node..."
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 nvm install --lts
 
+#install docker
+echo "Installing Docker"
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-sudo xrandr --newmode "1360x768_60.00"   84.75  1360 1432 1568 1776  768 771 781 798 -hsync +vsync
-sudo xrandr --addmode VGA-1 "1360x768_60.00"
-echo 'xrandr --newmode "1360x768_60.00"   84.75  1360 1432 1568 1776  768 771 781 798 -hsync +vsync
-xrandr --addmode VGA-1 "1360x768_60.00"' >> "$HOME/.profile"
+# changing the permission
+sudo chmod 666 /var/run/docker.sock
+
+#Download and install chrome
+echo "Downloading and installing chrome"
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+
+#install zsh and change default shell to zsh
+echo "Installing zsh... "
+echo "Changing default shell to zsh..."
+
+sudo apt install -y zsh
+sudo apt-get install -y powerline fonts-powerline
+sudo chsh -s /usr/bin/zsh
 
 echo "Your apps and graphics are now installed."
-echo "Please copy the .fonts, .icons, and .themes to your home directory"
-echo "Please, restart the computer, and then run 3nd script to configure zsh"
+echo "You can now change theme and appearance from Tweaks app"
+echo "Extract the fonts_themes.zip file and copy it folders to home directory."
+echo "Please, restart the computer, and then run 3nd script to configure zsh and final setup"
 
